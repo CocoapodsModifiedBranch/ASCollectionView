@@ -442,7 +442,7 @@ public struct ASTableView<SectionID: Hashable>: UIViewControllerRepresentable, C
 		public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
 		{
 			guard parent.sections[safe: indexPath.section]?.dataSource.supportsDelete(at: indexPath) == true else { return nil }
-			let deleteAction = UIContextualAction(style: .destructive, title: "Delete")
+            let deleteAction = UIContextualAction(style: .destructive, title: NSLocalizedString("Delete", comment: "Delete"))
 			{ [weak self] _, _, completionHandler in
 				let didDelete = self?.onDeleteAction(indexPath: indexPath) ?? false
 				completionHandler(didDelete)
